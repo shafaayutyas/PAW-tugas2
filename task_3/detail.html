@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Pendaftaran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container detail-container">
+
+        <h2>Detail Pendaftaran</h2>
+        <p class="subtitle">
+            Berikut adalah data pendaftaran yang telah Anda masukkan.
+        </p>
+
+        <div class="detail-card">
+
+            <h3>Data Diri</h3>
+
+            <div class="data-row">
+                <span class="label">Nama Lengkap</span>
+                <span class="value" id="nama"></span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">NIM</span>
+                <span class="value" id="nim"></span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Jenis Kelamin</span>
+                <span class="value" id="gender"></span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Tanggal Lahir</span>
+                <span class="value" id="tanggalLahir"></span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Email</span>
+                <span class="value" id="email"></span>
+            </div>
+
+
+            <h3>Data Akademik</h3>
+
+            <div class="data-row">
+                <span class="label">Universitas</span>
+                <span class="value" id="universitas"></span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Fakultas</span>
+                <span class="value" id="fakultas"></span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Program Studi</span>
+                <span class="value" id="prodi"></span>
+            </div>
+
+            <div class="data-row">
+                <span class="label">Semester</span>
+                <span class="value" id="semester"></span>
+            </div>
+
+        </div>
+
+        <a href="index.html" class="back-button">
+            Kembali ke Form
+        </a>
+
+    </div>
+
+
+    <script>
+
+        // Mengambil query string dari URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Mengambil data dari query string
+        const nama = params.get("nama");
+        const nim = params.get("nim");
+        const gender = params.get("gender");
+        const tanggalLahir = params.get("tanggalLahir");
+        const email = params.get("email");
+        const universitas = params.get("universitas");
+        const fakultas = params.get("fakultas");
+        const prodi = params.get("prodi");
+        const semester = params.get("semester");
+
+
+        // Mengubah nilai gender agar lebih mudah dibaca
+        let genderText;
+
+        if (gender === "male") {
+            genderText = "Laki-laki";
+        } else if (gender === "female") {
+            genderText = "Perempuan";
+        } else {
+            genderText = "-";
+        }
+
+
+        // Menampilkan data ke halaman
+        document.getElementById("nama").textContent = nama || "-";
+        document.getElementById("nim").textContent = nim || "-";
+        document.getElementById("gender").textContent = genderText;
+        document.getElementById("tanggalLahir").textContent = tanggalLahir || "-";
+        document.getElementById("email").textContent = email || "-";
+
+        document.getElementById("universitas").textContent =
+            universitas || "-";
+
+        document.getElementById("fakultas").textContent =
+            fakultas || "-";
+
+        document.getElementById("prodi").textContent =
+            prodi || "-";
+
+        document.getElementById("semester").textContent =
+            semester || "-";
+
+    </script>
+
+</body>
+</html>
